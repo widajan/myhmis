@@ -43,10 +43,6 @@ export class DepartmentAddComponent implements OnInit {
         console.log(error, "Add department error");
       })
    }
-  
-  //  addDepartment(departmentName, departmentDesc){
-  //    this.departmentService.addDepartment(departmentName, departmentDesc);
-  //  }
 
   ngOnInit() {
   }

@@ -1,1 +1,59 @@
-<p>doctor-add works!</p>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="formData" (ngSubmit)="submitDoctor()">
+            <div class="form-group">
+                <label class="col-md-4">Doctor Name</label>
+                <input type="text" class="form-control" formControlName="name" />
+            </div>
+    
+            <div class="form-group">
+                <label class="col-md-4">Qualification</label>
+                <input type="text" class="form-control" formControlName="qualification" />
+            </div>
+            
+            <div class="form-group">
+                <label class="col-md-4">Department</label>
+                <select name="deparment" id="" class="form-control" formControlName = "department">
+                    <option value="">Select an Item</option>
+                    <option *ngFor = "let department of departments" value="{{department._id}}">{{department.departmentName}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4">Gender</label>
+                <select name="gender" id="" formControlName = "gender" class="form-control">
+                    <option value="">Select an Item</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4">Mobile</label>
+                <input type="text" class="form-control" formControlName="mobile" />
+            </div>
+
+            <div class="form-group">
+                <label for="hospital">Select Hospital</label>
+                <select name="hospital" id="" formControlName="hospitalName"  class="form-control">
+                    <option value="">Select an item</option>
+                    <option *ngFor = "let hospital of hospitals"  value="{{hospital._id}}">{{hospital.name}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="">Shifts</label>
+                <select name="shift" id="" class="form-control" formControlName="shift">
+                    <option value="">Select Shifts</option>
+                    <option value="morning">Morning</option>
+                    <option value="evening">Evening</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" [disabled]="!formData.valid">Add Doctor</button>
+            </div>
+
+        </form>
+    </div>
+</div>
