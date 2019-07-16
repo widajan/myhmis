@@ -1,1 +1,10 @@
-<p>hospital works!</p>
+<div class="panel-heading">Manage Hospital</div>
+<div class="panel-body">
+<ul class="nav nav-tabs hospital">
+        <li role="presentation"><a [routerLink]="['list']" class="active">Hospital List</a></li>
+        <li role="presentation"><a [routerLink]="['add']">Add Hospital</a></li>
+</ul>
+
+</div>
+
+<router-outlet></router-outlet>
