@@ -14,6 +14,11 @@ import { DepartmentComponent } from './department/department.component';
 import { DepartmentListComponent } from './department-list/department-list.component';
 import { DoctorAddComponent } from './doctor-add/doctor-add.component';
 import { DoctorListComponent } from './doctor-list/doctor-list.component';
+import { HospitalListComponent } from './hospital-list/hospital-list.component';
+import { HospitalAddComponent } from './hospital-add/hospital-add.component';
+import { PatientComponent } from './patient/patient.component';
+import { PatientListComponent } from './patient-list/patient-list.component';
+import { PatientAddComponent } from './patient-add/patient-add.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,12 @@ import { DoctorListComponent } from './doctor-list/doctor-list.component';
     DepartmentComponent,
     DepartmentListComponent,
     DoctorAddComponent,
-    DoctorListComponent
+    DoctorListComponent,
+    HospitalListComponent,
+    HospitalAddComponent,
+    PatientComponent,
+    PatientListComponent,
+    PatientAddComponent
   ],
   imports: [
     BrowserModule,

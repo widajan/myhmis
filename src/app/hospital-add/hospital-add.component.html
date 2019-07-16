@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="hospitalForm" (ngSubmit)="submitHospital()">
+        <div class="form-group">
+          <label class="col-md-4">Hospital Name</label>
+          <input type="text" class="form-control" formControlName="name"  [(ngModel)] = "name" />
+        </div>
+        <div *ngIf="hospitalForm.controls['name'].invalid && (hospitalForm.controls['name'].dirty || hospitalForm.controls['name'].touched)" class="alert alert-danger">
+          <div *ngIf="hospitalForm.controls['name'].errors.required">
+            Hospital Name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Country </label>
+          <input type="text" class="form-control" formControlName="country" [(ngModel)] = "country" />
+        </div>
+        <div *ngIf="hospitalForm.controls['country'].invalid && (hospitalForm.controls['country'].dirty || hospitalForm.controls['country'].touched)" class="alert alert-danger">
+          <div *ngIf="hospitalForm.controls['country'].errors.required">
+             Country is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4">province </label>
+            <input type="text" class="form-control" formControlName="province" [(ngModel)] = "province" />
+          </div>
+          <div *ngIf="hospitalForm.controls['province'].invalid && (hospitalForm.controls['province'].dirty || hospitalForm.controls['province'].touched)" class="alert alert-danger">
+            <div *ngIf="hospitalForm.controls['province'].errors.required">
+               Province is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4">district </label>
+            <input type="text" class="form-control" formControlName="district" [(ngModel)] = "district" />
+          </div>
+          <div *ngIf="hospitalForm.controls['district'].invalid && (hospitalForm.controls['district'].dirty || hospitalForm.controls['district'].touched)" class="alert alert-danger">
+            <div *ngIf="hospitalForm.controls['district'].errors.required">
+               District is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" [disabled]="!hospitalForm.valid">Add Hospital</button>
+        </div>
+      </form>
+    </div>
+  </div> 

@@ -37,7 +37,8 @@
               "src/assets/js/style.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/bootstrap.js",
-              "src/assets/js/npm.js"
+              "src/assets/js/npm.js",
+              "src/assets/js/custom-js.js"
             ]
           },
           "configurations": {

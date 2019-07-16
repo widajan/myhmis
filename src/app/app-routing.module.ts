@@ -10,6 +10,11 @@ import { DepartmentComponent } from './department/department.component';
 import { DepartmentListComponent } from './department-list/department-list.component';
 import { DoctorListComponent } from './doctor-list/doctor-list.component';
 import { DoctorAddComponent } from './doctor-add/doctor-add.component';
+import { HospitalListComponent } from './hospital-list/hospital-list.component';
+import { HospitalAddComponent } from './hospital-add/hospital-add.component';
+import { PatientComponent } from './patient/patient.component';
+import { PatientListComponent } from './patient-list/patient-list.component';
+import { PatientAddComponent } from './patient-add/patient-add.component';
 
 
 const routes: Routes = [
@@ -56,6 +61,44 @@ const routes: Routes = [
         path: '',
         redirectTo: 'list',
         pathMatch:'full'
+      }
+    ]
+  },
+  {
+    path: 'hospital',
+    component: HospitalComponent,
+    children: [
+      {
+        path: 'list',
+        component: HospitalListComponent,
+      },
+      {
+        path: 'add',
+        component: HospitalAddComponent
+      },
+      {
+        path: '',
+        redirectTo: 'list',
+        pathMatch: 'full'
+      }
+    ]
+  },
+  {
+    path: 'patient',
+    component: PatientComponent,
+    children: [
+      {
+        path: 'list',
+        component: PatientListComponent
+      },
+      {
+        path: 'add',
+        component: PatientAddComponent,
+      },
+      {
+        path: '',
+        redirectTo: 'list',
+        pathMatch: 'full'
       }
     ]
   }

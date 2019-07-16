@@ -1,0 +1,24 @@
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Hospital Name</th>
+            <th>Country</th>
+            <th>Province</th>
+            <th>District</th>
+            <th>Action</th>
+        </tr> 
+    </thead>
+    <tbody>
+        <tr *ngFor = "let hospital of hospitals">
+            <td> {{hospital.name}} </td>
+            <td> {{hospital.address.country}} </td>
+            <td> {{hospital.address.province}} </td>
+            <td> {{hospital.address.district}} </td>
+            
+            <td>
+                <a [routerLink]="['/hospital/edit']"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button></a>
+                <a  [routerLink]="['/delete/:id']" class="btn btn-danger" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
