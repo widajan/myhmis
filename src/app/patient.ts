@@ -7,6 +7,6 @@ export default class Patient {
     bloodGroup: string;
     diagnosis: string;
     dateOfExamination: Date;
-    hospitalName: string;
-    doctorName: string; 
+    hospitalId: string;
+    doctorId: string; 
 }
