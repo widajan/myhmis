@@ -8,5 +8,5 @@ export default class Patient {
     diagnosis: string;
     dateOfExamination: Date;
     hospitalName: string;
-    doctorName: string;
+    doctorName: string; 
 }
