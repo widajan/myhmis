@@ -1,1 +1,21 @@
-<p>patient-list works!</p>
+<table class="table table-hover, table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Patient Name</th>
+            <th>Patient Mobile</th>
+            <th>Diagnosis</th>
+            <th>Date of Examination</th>
+            <th>Doctor Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let patient of patients">
+            <td>{{patient?.name}}</td>
+            <td>{{patient?.mobile}}</td>
+            <td>{{patient?.diagnosis}}</td>
+            <td>{{patient?.medicalRecord?.dateOfExamination | date}}</td>
+            <td>{{patient?.patientDoctor?.doctorName}}</td>
+        </tr>
+    </tbody>
+</table>
