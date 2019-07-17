@@ -1,96 +1,103 @@
-<div id="adddoctor" class="switchgroup">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <form class="form-horizontal" action="#" method="POST">
-                                <div class="form-group">
-                                    <label  class="col-sm-2 control-label">Patient Name:</label>
-                                        <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="name" placeholder="Name">
-                                    </div>
-                                </div>
-                                                                                    
-                                    <div class="form-group">
-                                    <label  class="col-sm-2 control-label">Age</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="age" placeholder="Age">
-                                    </div>
-                                    </div>
-                                    
-                                    <div class="form-group">    
-                                        <label class="col-sm-2 control-label">Sex</label>
-                                        <div class="col-sm-2">
-                                        <select class="form-control">
-                                            <option>Male</option>
-                                            <option>Female</option>
-                                        </select>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                    <label class="col-sm-2 control-label">Address</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="address" placeholder="Address">
-                                    </div>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                    <label  class="col-sm-2 control-label">Mobile</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="mobile" placeholder="Mobile">
-                                    </div>
-                                    </div>
-                                    
-                                    <div class="form-group">    
-                                        <label class="col-sm-2 control-label">Blood Group</label>
-                                        <div class="col-sm-2">
-                                        <select class="form-control">
-                                            <option>A<sup>+</sup></option>
-                                            <option>A<sup>-</sup></option>
-                                            <option>B<sup>+</sup></option>
-                                            <option>B<sup>-</sup></option>
-                                            <option>AB<sup>+</sup></option>
-                                            <option>AB<sup>-</sup></option>
-                                            <option>O<sup>+</sup></option>
-                                            <option>O<sup>-</sup></option>
-                                        </select>
-                                        </div>
-                                        </div>
+<div id="" class="switchgroup">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form [formGroup]="patientForm" (ngSubmit)="submitPatient()">
+                <div class="form-group">
+                    <label  class="col-sm-2 control-label">Patient Name:</label>
+                        <div class="col-sm-10">
+                        <input type="text" formControlName="name" class="form-control" name="name" placeholder="Name">
+                    </div>
+                </div>
 
-                                    <div class="form-group">
-                                        <label  class="col-sm-2 control-label">Diagnosis</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="diagnosis" placeholder="Diagnosis">
-                                    </div>
-                                    </div>
-                                    
-                                <div class="form-group">
-                                    <label  class="col-sm-2 control-label"> Date of Examination</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="examdate" placeholder="Examination date">
-                                    </div>
-                                </div>
+                    <div class="form-group">
+                    <label  class="col-sm-2 control-label">Age</label>
+                    <div class="col-sm-10">
+                        <input type="text" formControlName="age" class="form-control" name="age" placeholder="Age">
+                    </div>
+                    </div>
 
-                                <div class="form-group">
-                                    <label  class="col-sm-2 control-label">Hospital Name</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="hospital" placeholder="Hospital">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label  class="col-sm-2 control-label">Doctor Name</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="dorctor" placeholder="Doctor">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-primary">Add Patient</button>
-                                </div>
-                                </div>
-                            </form>
-                        
-                            </div>
+                    <div class="form-group">    
+                        <label class="col-sm-2 control-label">Sex</label>
+                        <div class="col-sm-10">
+                        <select formControlName="gender" class="form-control" style="width: 20% !important" >
+                            <option>Select an Item</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
                         </div>
                     </div>
+                    
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label">Address</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="address" placeholder="Address" formControlName="address">
+                    </div>
+                    </div>
+                    
+                    <div class="form-group">
+                    <label  class="col-sm-2 control-label">Mobile</label>
+                    <div class="col-sm-10">
+                        <input type="text" formControlName="mobile" class="form-control" name="mobile" placeholder="Mobile">
+                    </div>
+                    </div>
+                    
+                    <div class="form-group">    
+                        <label class="col-sm-2 control-label">Blood Group</label>
+                        <div class="col-sm-10">
+                        <select class="form-control" formControlName="blood_group">
+                            <option>Select an Item</option>
+                            <option value="A+">A<sup>+</sup></option>
+                            <option value="A-">A<sup>-</sup></option>
+                            <option value="B+">B<sup>+</sup></option>
+                            <option value="B-">B<sup>-</sup></option>
+                            <option value="AB+">AB<sup>+</sup></option>
+                            <option value="AB-">AB<sup>-</sup></option>
+                            <option value="O+">O<sup>+</sup></option>
+                            <option value="O-">O<sup>-</sup></option>
+                        </select>
+                        </div>
+                        </div>
+
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">Diagnosis</label>
+                        <div class="col-sm-10">
+                            <input type="text" formControlName="diagnosis" class="form-control" name="diagnosis" placeholder="Diagnosis">
+                    </div>
+                    </div>
+                    
+                <div class="form-group">
+                    <label  class="col-sm-2 control-label"> Date of Examination</label>
+                    <div class="col-sm-10">
+                        <input type="text" formControlName="dateOfExamination" class="form-control" name="examdate" placeholder="Examination date">
+                    </div>
+                </div> 
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Hospital Name</label>
+                    <div class="col-sm-10">
+                    <select name="hospital" formControlName="hospitalName" id="" class="form-control">
+                        <option value="">Select an Item</option>
+                        <option *ngFor = "let hospital of hospitals" value="{{hospital._id}}">{{hospital.name}}</option>
+                    </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Doctor Name</label>
+                    <div class="col-sm-10">
+                        <select name="doctor" class="form-control" formControlName="doctorName">
+                            <option value="">Select an Item</option>
+                            <option *ngFor = "let doctor of doctors" value="{{doctor._id}}">{{doctor.name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary" [disabled]="!patientForm.valid">Add Patient</button>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
