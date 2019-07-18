@@ -13,8 +13,8 @@ export class DepartmentService {
 
   constructor(private http: HttpClient) { }
 
-  getDepartment(): Observable<any> {
-    return this.http.get('api/department/list');
+  getDepartment(limit: number, skip: number): Observable<any> {
+    return this.http.get(`api/department/list?limit=${limit}&skip=${skip}`);
   }
 
   addDepartmentData(departmentData: Department){
