@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import Department from './department';
+import { reject } from 'q';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,4 +20,9 @@ export class DepartmentService {
   addDepartmentData(departmentData: Department){
    return this.http.post("api/department/add",departmentData)
   }
+
+  countDepartment(): Observable<any>{
+    return this.http.get('api/department/total'); 
+  }
+
 }
