@@ -9,9 +9,11 @@ import { DoctorService } from '../doctor.service';
 export class DoctorListComponent implements OnInit {
  
   doctors:[];
+  recordPerPage= 2;
 
   constructor( private doctorService: DoctorService ) { 
-  }
+    
+}
 
   ngOnInit() {
     this.getDoctorList();

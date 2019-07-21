@@ -14,7 +14,11 @@ export class DepartmentService {
   constructor(private http: HttpClient) { }
 
   getDepartment(limit: number, skip: number): Observable<any> {
-    return this.http.get(`api/department/list?limit=${limit}&skip=${skip}`);
+    let filter = {
+      limit: limit,
+      skip: skip
+    };
+    return this.http.get(`api/department/list?filter=${JSON.stringify(filter)}`);
   }
 
   addDepartmentData(departmentData: Department){

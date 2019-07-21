@@ -13,7 +13,7 @@
     </tbody>
 </table> 
 
-<nav aria-label="...">
+<!-- <nav aria-label="...">
     <ul class="pagination pagination-sm">
       <li class="page-item disabled">
         <a class="page-link" [routerLink]="['/department/list']" [queryParams]="{page: 1}" tabindex="-1">1</a>
@@ -21,4 +21,10 @@
       <li class="page-item"><a class="page-link" [routerLink]="['/department/list']" [queryParams]="{page: 2}">2</a></li>
       <li class="page-item"><a class="page-link"[routerLink]="['/department/list']" [queryParams]="{page: 3}">3</a></li>
     </ul>
-  </nav>
+  </nav> -->
+
+  <div class="custom-pagination">
+        <div class="col-sm-9 col-xs-12 ">
+            <app-custom-pagination *ngIf="countDepartments > recPerPage" [limit]="recPerPage" [offset]="skip" [size]="countDepartments" (pageChange)="getDepartmentList($event)"></app-custom-pagination>
+        </div>
+    </div>

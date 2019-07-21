@@ -10,8 +10,16 @@ export class PatientService {
 
   constructor( private http: HttpClient) { }
 
-  getPatient(): Observable<any> {
-   return this.http.get('api/patient/list');
+  getPatient(offset = 0): Observable<any> {
+    console.log(offset, "Offser");
+    let filter = {
+      offset: offset
+    };
+    return this.http.get(`api/patient/list?filter=${JSON.stringify(filter)}`);
+  }
+
+  getPatientsCount(): Observable<any> {
+    return this.http.get('api/patient/count');
   }
 
   addPatient(patientData: Patient){

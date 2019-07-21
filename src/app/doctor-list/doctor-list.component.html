@@ -16,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let doctor of doctors">
+        <tr *ngFor="let doctor of doctors  | paginate: { itemsPerPage: recordPerPage, currentPage: p }">
             <td>{{doctor.name}}</td>
             <td>{{doctor.department}}</td>
             <td>{{doctor.qualification}}</td>
@@ -24,3 +24,4 @@
         </tr>
     </tbody>
 </table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

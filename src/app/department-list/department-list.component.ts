@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { DepartmentService } from '../department.service';
 import { Route, Router, ActivatedRoute } from '@angular/router';
+import { skip } from 'rxjs/operators';
 
 
 @Component({
   selector: 'app-department-list',
   templateUrl: './department-list.component.html',
-  styleUrls: ['./department-list.component.scss']
+  styleUrls: ['./department-list.component.scss', '../shared/css/style.scss']
 })
 export class DepartmentListComponent implements OnInit {
 
@@ -15,34 +16,30 @@ export class DepartmentListComponent implements OnInit {
   page:number = 1;
   recPerPage:number = 1;
   totalPage:number;
+  skip = 0;
   constructor( 
     private departmentService: DepartmentService,
     private route: ActivatedRoute
     
   ) { }
 
-  ngOnInit() {
-    this.getDepartmentList();
+  async ngOnInit() {
 
+    this.countDepartments = await this.countAllDepartment();
+    this.getDepartmentList(this.skip);
     this.route.queryParams.subscribe(params => {
       this.page = params.page;
   })
 
   }
 
-  async getDepartmentList(){
-    
+  getDepartmentList(offset){
     try {
-      this.countDepartments = await this.countAllDepartment();
-      
-
-      const skip = (this.page*this.recPerPage) - this.recPerPage;
-      this.totalPage = Math.ceil(this.countDepartments/this.recPerPage);
-      console.log(skip,'skip');
-      this.departmentService.getDepartment(this.recPerPage, skip)
-    .subscribe(result => {
+      this.skip = offset;
+      this.departmentService.getDepartment(this.recPerPage, this.skip)
+      .subscribe(result => {
       this.departments = result;
-    }, error =>{
+      }, error =>{
       console.log("error", error);
     })
     } catch (error) {

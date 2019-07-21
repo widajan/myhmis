@@ -1,0 +1,25 @@
+<ul class="pagination">
+  <li *ngIf="isJumpingEnable" (click)="currentPage === 1 ? '' : selectPage(1)" [class.disabled]="currentPage === 1">
+    <a href="javascript:void(0)" title="Go to first page">First Page</a>
+  </li>
+  <li (click)="currentPage === 1 ? '' : selectPage(currentPage - 1)" [class.disabled]="currentPage === 1">
+    <a href="javascript:void(0)">Previous</a>
+  </li>
+  <li class="disabled" (click)="cancelEvent($event)" *ngIf="(currentPage - range) > 1">
+    <a href="javascript:void(0)">...</a>
+  </li>
+  <li *ngFor="let page of pages | async" [class.active]="page === currentPage">
+    <a href="javascript:void(0)" (click)="page === currentPage ? cancelEvent($event) : selectPage(page); false">
+      {{page}}
+    </a>
+  </li>
+  <li class="disabled" (click)="cancelEvent($event)" *ngIf="(currentPage + range) < totalPages">
+    <a href="javascript:void(0)">...</a>
+  </li>
+  <li (click)="currentPage === totalPages ? '' : selectPage(currentPage + 1)" [class.disabled]="currentPage === totalPages">
+    <a href="javascript:void(0)">Next</a>
+  </li>
+  <li *ngIf="isJumpingEnable" (click)="currentPage === totalPages ? '' : selectPage(totalPages)" [class.disabled]="currentPage === totalPages">
+    <a href="javascript:void(0)" title="Go to last page">Last Page</a>
+  </li>
+</ul>

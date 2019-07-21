@@ -9,7 +9,7 @@
         </tr> 
     </thead>
     <tbody>
-        <tr *ngFor = "let hospital of hospitals">
+        <tr *ngFor = "let hospital of hospitals | paginate: { itemsPerPage: 1, currentPage: p }">
             <td> {{hospital.name}} </td>
             <td> {{hospital.address.country}} </td>
             <td> {{hospital.address.province}} </td>
@@ -22,3 +22,5 @@
         </tr>
     </tbody>
 </table>
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
