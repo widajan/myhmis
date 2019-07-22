@@ -17,7 +17,7 @@ export class DepartmentService {
     let filter = {
       limit: limit,
       skip: skip
-    };
+    }; 
     return this.http.get(`api/department/list?filter=${JSON.stringify(filter)}`);
   }
 

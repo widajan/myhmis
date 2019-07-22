@@ -17,6 +17,7 @@ export class DepartmentListComponent implements OnInit {
   recPerPage:number = 1;
   totalPage:number;
   skip = 0;
+  
   constructor( 
     private departmentService: DepartmentService,
     private route: ActivatedRoute
@@ -40,13 +41,13 @@ export class DepartmentListComponent implements OnInit {
       .subscribe(result => {
       this.departments = result;
       }, error =>{
-      console.log("error", error);
+        console.log("error", error);
     })
     } catch (error) {
       
     }  
   }
-
+ 
   countAllDepartment(){
     return new Promise((resolve, reject) => {
       this.departmentService.countDepartment()
