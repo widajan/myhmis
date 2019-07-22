@@ -16,7 +16,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let doctor of doctors  | paginate: { itemsPerPage: recordPerPage, currentPage: p }">
+        <!-- <tr *ngFor="let doctor of doctors  | paginate: { itemsPerPage: recordPerPage, currentPage: p }"> -->
+        <tr *ngFor="let doctor of doctors">
             <td>{{doctor.name}}</td>
             <td>{{doctor.department}}</td>
             <td>{{doctor.qualification}}</td>
@@ -24,4 +25,12 @@
         </tr>
     </tbody>
 </table>
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+<div class="custom-pagination">
+    <div class="col-sm-9 col-xs-12 "> 
+        <app-custom-pagination *ngIf = "countDoctors > recPerPage" [limit] = "recPerPage" [offset] = "skip" [size] = "countDoctors" (pageChange)="getDoctorList($event)"></app-custom-pagination>
+    </div>
+</div>
+
+
+<!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
