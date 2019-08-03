@@ -30,7 +30,7 @@ export class DoctorListComponent implements OnInit {
   getDoctorList(offset) {
     try {
         this.skip = offset;
-        this.doctorService.getDoctors(this.skip, this.recPerpage)
+        this.doctorService.getDoctors(this.skip, this.recPerPage)
         .subscribe(result => {
           this.doctors = result;
           console.log(result); 

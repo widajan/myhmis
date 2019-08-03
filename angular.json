@@ -28,9 +28,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/css/bootstrap.css",
-              "src/assets/css/bootstrap.min.css",
-              "src/assets/css/style.css"
+              "src/assets/css/bootstrap.scss",
+              "src/assets/css/bootstrap.min.scss",
+              "src/assets/css/style.scss",
+              "src/assets/css/main.scss",
+              "src/assets/css/util.scss"
             ],
             "scripts": [
               "src/assets/js/jquery.js",
@@ -38,7 +40,8 @@
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/bootstrap.js",
               "src/assets/js/npm.js",
-              "src/assets/js/custom-js.js"
+              "src/assets/js/custom-js.js",
+              "src/assets/js/main.js"
             ]
           },
           "configurations": {

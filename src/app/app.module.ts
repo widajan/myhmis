@@ -20,6 +20,9 @@ import { PatientComponent } from './patient/patient.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { PatientAddComponent } from './patient-add/patient-add.component';
 import { PaginationComponent } from './shared/pagination.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
@@ -39,7 +42,9 @@ import { PaginationComponent } from './shared/pagination.component';
     PatientComponent,
     PatientListComponent,
     PatientAddComponent,
-    PaginationComponent
+    PaginationComponent,
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +52,7 @@ import { PaginationComponent } from './shared/pagination.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

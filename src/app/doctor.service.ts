@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-// import { Doctor } from './doctor';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import Doctor from './doctor';

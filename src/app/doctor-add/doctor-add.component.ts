@@ -39,7 +39,7 @@ export class DoctorAddComponent implements OnInit {
 
    submitDoctor(){
 
-     console.log(this.formData.value, "Add Doctor Form");
+    //  console.log(this.formData.value, "Add Doctor Form");
     let newDoctor: Doctor = {
       name: this.formData.controls.name.value,
       qualification: this.formData.controls.qualification.value,
@@ -56,9 +56,6 @@ export class DoctorAddComponent implements OnInit {
     }, error => {
       console.log(error, "Error Adding");
     })
-
-
-
    }
    getHostpitalList(){
     this.ds.getHospital()
