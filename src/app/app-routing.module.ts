@@ -16,6 +16,8 @@ import { PatientComponent } from './patient/patient.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { PatientAddComponent } from './patient-add/patient-add.component';
 import { LoginComponent } from './login/login.component';
+import { LoginAddComponent } from './login-add/login-add.component';
+import { LoginRegisterComponent } from './login-register/login-register.component';
 
 
 const routes: Routes = [
@@ -105,7 +107,17 @@ const routes: Routes = [
   }, 
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    children: [
+      {
+        path: 'add',
+        component: LoginAddComponent
+      },
+      {
+        path: 'register',
+        component: LoginRegisterComponent
+      }
+    ]
   }
 ];
 

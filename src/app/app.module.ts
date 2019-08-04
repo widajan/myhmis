@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +23,9 @@ import { PaginationComponent } from './shared/pagination.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegistrationComponent } from './registration/registration.component';
+import { LoginAddComponent } from './login-add/login-add.component';
+import { LoginRegisterComponent } from './login-register/login-register.component';
+import { TokenInterceptor } from './http-client.interceptor';
 
 
 @NgModule({
@@ -44,7 +47,9 @@ import { RegistrationComponent } from './registration/registration.component';
     PatientAddComponent,
     PaginationComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginAddComponent,
+    LoginRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,11 @@ import { RegistrationComponent } from './registration/registration.component';
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
