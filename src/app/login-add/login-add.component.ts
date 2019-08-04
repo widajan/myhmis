@@ -38,6 +38,10 @@ export class LoginAddComponent implements OnInit {
       if (data && data.accessToken) {
         localStorage.setItem("token", data.accessToken);
       }
+      // For token header generation, create an interceptor.
+      // Here we created (http-client.interceptor.ts)
+      // after that, go to app.modules and in providers section, load the following
+      // provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor,multi: true
     }, error => {
       console.log(error, "Error Logging in");
     })
