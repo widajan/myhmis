@@ -28,11 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/css/bootstrap.scss",
-              "src/assets/css/bootstrap.min.scss",
-              "src/assets/css/style.scss",
-              "src/assets/css/main.scss",
-              "src/assets/css/util.scss"
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/style.css",
             ],
             "scripts": [
               "src/assets/js/jquery.js",
