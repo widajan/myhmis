@@ -18,6 +18,7 @@ import { PatientAddComponent } from './patient-add/patient-add.component';
 import { LoginComponent } from './login/login.component';
 import { LoginAddComponent } from './login-add/login-add.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
@@ -26,12 +27,9 @@ const routes: Routes = [
     component: AppComponent
   },
   {
-    path: 'hospital',
-    component: HospitalComponent
-  },
-  {
     path: 'doctor',
     component: DoctorComponent, 
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'list',
@@ -51,6 +49,7 @@ const routes: Routes = [
   {
     path: 'department',
     component: DepartmentComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'list',
@@ -70,6 +69,7 @@ const routes: Routes = [
   {
     path: 'hospital',
     component: HospitalComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'list',
@@ -89,6 +89,7 @@ const routes: Routes = [
   {
     path: 'patient',
     component: PatientComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'list',
@@ -115,7 +116,7 @@ const routes: Routes = [
       },
       {
         path: 'register',
-        component: LoginRegisterComponent
+        component: LoginRegisterComponent,
       }
     ]
   }
