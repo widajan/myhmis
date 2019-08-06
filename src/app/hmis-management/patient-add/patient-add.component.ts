@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PatientService } from '../patient.service';
+import { PatientService } from '../../patient.service';
 import { Router } from '@angular/router';
-import Patient from '../patient';
+import Patient from '../../patient';
 
 @Component({
   selector: 'app-patient-add',

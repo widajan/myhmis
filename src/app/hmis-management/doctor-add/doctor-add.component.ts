@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { DoctorService } from '../doctor.service';
+import { DoctorService } from '../../doctor.service';
 import { Router } from '@angular/router';
-import Doctor from '../doctor';
+import Doctor from '../../doctor';
 
 @Component({
   selector: 'app-doctor-add',

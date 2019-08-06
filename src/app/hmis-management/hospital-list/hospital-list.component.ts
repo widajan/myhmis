@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HospitalService } from '../hospital.service';
+import { HospitalService } from '../../hospital.service';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
