@@ -27,6 +27,7 @@ import { LoginAddComponent } from './login-add/login-add.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { TokenInterceptor } from './http-client.interceptor';
 import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth.service';
 
 
 @NgModule({
@@ -64,7 +65,7 @@ import { AuthGuard } from './auth.guard';
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true,
-  }, AuthGuard],
+  }, AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
