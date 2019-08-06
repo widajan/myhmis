@@ -22,9 +22,7 @@ import { PatientAddComponent } from './patient-add/patient-add.component';
 import { PaginationComponent } from './shared/pagination.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
-import { RegistrationComponent } from './registration/registration.component';
-import { LoginAddComponent } from './login-add/login-add.component';
-import { LoginRegisterComponent } from './login-register/login-register.component';
+
 import { TokenInterceptor } from './http-client.interceptor';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
@@ -48,10 +46,7 @@ import { AuthService } from './auth.service';
     PatientListComponent,
     PatientAddComponent,
     PaginationComponent,
-    LoginComponent,
-    RegistrationComponent,
-    LoginAddComponent,
-    LoginRegisterComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,

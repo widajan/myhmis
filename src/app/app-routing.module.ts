@@ -15,9 +15,6 @@ import { HospitalAddComponent } from './hospital-add/hospital-add.component';
 import { PatientComponent } from './patient/patient.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { PatientAddComponent } from './patient-add/patient-add.component';
-import { LoginComponent } from './login/login.component';
-import { LoginAddComponent } from './login-add/login-add.component';
-import { LoginRegisterComponent } from './login-register/login-register.component';
 import { AuthGuard } from './auth.guard';
 
 
@@ -108,17 +105,7 @@ const routes: Routes = [
   }, 
   {
     path: 'login',
-    component: LoginComponent,
-    children: [
-      {
-        path: 'add',
-        component: LoginAddComponent
-      },
-      {
-        path: 'register',
-        component: LoginRegisterComponent,
-      }
-    ]
+    loadChildren: ()  => import("./login/login.module").then(m => m.LoginModule)
   }
 ];
 

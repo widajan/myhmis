@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { LoginService } from '../login.service';
-import Login from '../login';
+import { LoginService } from '../../login.service';
+import Login from '../../login';
 import { subscribeOn } from 'rxjs/operators';
 
 @Component({
