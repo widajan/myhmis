@@ -2,9 +2,9 @@
 export default class Doctor {
     name: string;
     qualification: string;
-    departmentId: string;
+    department: string;
     gender: string;
-    mobile: string;
-    hospitalId: string;
+    mobile: number;
+    hospital: string;
     shift: string;
 }

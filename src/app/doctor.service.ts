@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import Doctor from './doctor';
+import { DoctorDetails } from './hmis-management/doctor/doctorDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -23,15 +24,33 @@ export class DoctorService {
 
   // for dropdown add
   getHospital(): Observable<any> {
-    return this.http.get('api/hospital/list');
+    let queryParams = {
+      all: true
+    }
+    return this.http.get(`api/hospital/list?filter=${JSON.stringify(queryParams)}`);
   }
   // for dropdown add
   getDepartment(): Observable<any> {
-    return this.http.get('api/department/list');
+    let queryParams = {
+      all: true
+    };
+    return this.http.get(`api/department/list?filter=${JSON.stringify(queryParams)}`);
   }
 
   countDoctors(): Observable<any> {
     return this.http.get("api/doctor/count");
+  }
+
+  getDoctorDetails(){
+    return this.http.get('api/doctor/getdoctor')
+  }
+
+  getDoctorById(id) {
+    return this.http.get(`api/doctor/details/${id}`);
+  }
+
+  update(id, data): Observable<any>{
+    return this.http.put(`api/doctor/update/${id}`, data);
   }
 
 }

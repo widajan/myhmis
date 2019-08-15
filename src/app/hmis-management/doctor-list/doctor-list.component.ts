@@ -23,7 +23,6 @@ export class DoctorListComponent implements OnInit {
 
   async ngOnInit() {
     this.countDoctors = await this.countAllDoctors();
-    // console.log(this.countDoctors, "alsjfdlkajskl");
     this.getDoctorList(this.skip);
   }
 

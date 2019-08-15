@@ -23,6 +23,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { DoctorEditComponent } from './doctor-edit/doctor-edit.component';
+
 
 
 const routes: Routes = [{
@@ -42,6 +44,10 @@ const routes: Routes = [{
         {
           path: "add",
           component: DoctorAddComponent
+        },
+        {
+          path: "edit/:id",
+          component: DoctorEditComponent
         },
         {
           path: '',
@@ -136,6 +142,7 @@ const routes: Routes = [{
     PatientAddComponent,
     PaginationComponent,
     HomeComponent,
+    DoctorEditComponent,
   ],
   imports: [
     CommonModule,

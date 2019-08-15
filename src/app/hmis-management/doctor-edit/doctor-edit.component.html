@@ -1,0 +1,94 @@
+<div class="card">
+        <div class="card-body" >
+            <form *ngIf="doctor && departments.length > 0" [formGroup]="editForm" (ngSubmit)="doctorUpdate(editForm.value, doctor._id)">
+                <div class="form-group col-md-5">
+                    <label class="col-md-4">Doctor Name</label>
+                    <input type="text" class="form-control" formControlName="name" required />
+                </div>
+                <div *ngIf="editForm.controls['name'].invalid && (editForm.controls['name'].dirty ||editForm.controls['name'].touched)" class="alert alert-danger">
+                    <div *ngIf="editForm.controls['name'].errors.required">
+                    Doctor Name is required.
+                </div>
+                </div> 
+        
+                <div class="form-group col-md-5">
+                    <label class="col-md-4">Qualification</label>
+                    <input type="text" class="form-control" formControlName="qualification" />
+                </div>
+                <div *ngIf="editForm.controls['qualification'].invalid && (editForm.controls['qualification'].dirty ||editForm.controls['qualification'].touched)" class="alert alert-danger">
+                    <div *ngIf="editForm.controls['qualification'].errors.required">
+                    Qualification is required.
+                </div>
+                </div>
+                
+                <div class="form-group col-md-5">
+                    <label class="col-md-4">Department</label>
+                    <select id="" class="form-control" formControlName="department">
+                        <option value=''>Select an Item</option>
+                        <option *ngFor = "let department of departments" value="{{department._id}}">{{department.departmentName}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.controls['department'].invalid && (editForm.controls['department'].dirty ||editForm.controls['department'].touched)" class="alert alert-danger">
+                    <div *ngIf="editForm.controls['department'].errors.required">
+                    Department is required.
+                </div>
+                </div>
+    
+                <div class="form-group col-md-5">
+                    <label class="col-md-4">Gender</label>
+                    <select formControlName = "gender" class="form-control">
+                        <option value="">Select an Item</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.controls['gender'].invalid && (editForm.controls['gender'].dirty ||editForm.controls['gender'].touched)" class="alert alert-danger">
+                    <div *ngIf="editForm.controls['gender'].errors.required">
+                    Gender is required.
+                </div>
+                </div>
+    
+                <div class="form-group col-md-5">
+                    <label class="col-md-4">Mobile</label>
+                    <input type="text" class="form-control" formControlName="mobile" />
+                </div>
+                <div *ngIf="editForm.controls['mobile'].invalid && (editForm.controls['mobile'].dirty ||editForm.controls['mobile'].touched)" class="alert alert-danger">
+                    <div *ngIf="editForm.controls['mobile'].errors.required">
+                    Mobile is required.
+                </div>
+                </div>
+    
+                <div class="form-group col-md-5">
+                    <label for="hospital">Select Hospital</label>
+                    <select id=""  class="form-control" formControlName="hospital">
+                        <option value="">Select an item</option>
+                        <option *ngFor = "let hospital of hospitals"  value="{{hospital._id}}">{{hospital.name}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.controls['hospital'].invalid && (editForm.controls['hospital'].dirty ||editForm.controls['hospital'].touched)" class="alert alert-danger">
+                    <div *ngIf="editForm.controls['hospital'].errors.required">
+                    Hospital is required.
+                </div>
+                </div>
+    
+                <div class="form-group col-md-5">
+                    <label for="">Shifts</label>
+                    <select class="form-control" formControlName="shift" >
+                        <option value="">Select Shifts</option>
+                        <option value='morning'>Morning</option>
+                        <option value='evening'>Evening</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.controls['shift'].invalid && (editForm.controls['shift'].dirty ||editForm.controls['shift'].touched)" class="alert alert-danger">
+                    <div *ngIf="editForm.controls['shift'].errors.required">
+                    Shift is required.
+                </div>
+                </div> 
+     
+                <div class="form-group col-md-5">
+                    <button type="submit" class="btn btn-primary">Update Doctor</button>
+                </div>
+    
+            </form>
+        </div>
+    </div>

@@ -12,9 +12,7 @@ import Doctor from '../../doctor';
 export class DoctorAddComponent implements OnInit {
 
   formData: FormGroup;
-
   hospitals = [];
-
   departments = [];
 
   constructor(
@@ -43,10 +41,10 @@ export class DoctorAddComponent implements OnInit {
     let newDoctor: Doctor = {
       name: this.formData.controls.name.value,
       qualification: this.formData.controls.qualification.value,
-      departmentId: this.formData.controls.department.value,
+      department: this.formData.controls.department.value,
       gender: this.formData.controls.gender.value,
       mobile: this.formData.controls.mobile.value,
-      hospitalId: this.formData.controls.hospitalName.value,
+      hospital: this.formData.controls.hospitalName.value,
       shift: this.formData.controls.shift.value
     }
 

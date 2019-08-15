@@ -11,10 +11,9 @@ import { TokenInterceptor } from './http-client.interceptor';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 
-
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +22,7 @@ import { AuthService } from './auth.service';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-  ],
+  ], 
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,

@@ -1,17 +1,17 @@
 <div class="card">
     <div class="card-body">
         <form [formGroup]="formData" (ngSubmit)="submitDoctor()">
-            <div class="form-group">
+            <div class="form-group col-md-5">
                 <label class="col-md-4">Doctor Name</label>
                 <input type="text" class="form-control" formControlName="name" />
             </div>
     
-            <div class="form-group">
+            <div class="form-group col-md-5">
                 <label class="col-md-4">Qualification</label>
                 <input type="text" class="form-control" formControlName="qualification" />
             </div>
             
-            <div class="form-group">
+            <div class="form-group col-md-5">
                 <label class="col-md-4">Department</label>
                 <select name="deparment" id="" class="form-control" formControlName = "department">
                     <option value="">Select an Item</option>
@@ -19,7 +19,7 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-md-5">
                 <label class="col-md-4">Gender</label>
                 <select name="gender" id="" formControlName = "gender" class="form-control">
                     <option value="">Select an Item</option>
@@ -28,12 +28,12 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-md-5">
                 <label class="col-md-4">Mobile</label>
                 <input type="text" class="form-control" formControlName="mobile" />
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-md-5">
                 <label for="hospital">Select Hospital</label>
                 <select name="hospital" id="" formControlName="hospitalName"  class="form-control">
                     <option value="">Select an item</option>
@@ -41,7 +41,7 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-md-5">
                 <label for="">Shifts</label>
                 <select name="shift" id="" class="form-control" formControlName="shift">
                     <option value="">Select Shifts</option>
@@ -50,7 +50,7 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-md-5">
                 <button type="submit" class="btn btn-primary" [disabled]="!formData.valid">Add Doctor</button>
             </div>
 
