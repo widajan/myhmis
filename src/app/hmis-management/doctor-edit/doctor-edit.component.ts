@@ -74,7 +74,7 @@ export class DoctorEditComponent implements OnInit {
             selectedHospId = hospital._id;
           }
         });
-        // console.log(this.hospitals, "Hospitals");
+
       }).catch(err => {});
 
       await this.getDepartmentList().then(deps => {
@@ -86,27 +86,17 @@ export class DoctorEditComponent implements OnInit {
           }
         });
 
-        // console.log(this.departments, "Departments");
       }).catch(err => {});
       this.editForm = this.fb.group({
         name: new FormControl(this.doctor.name),
+        //  ? this.doctor.gender : '' is used for html selected item
         qualification: new FormControl(this.doctor.qualification),
-        department: new FormControl(selectedDepId ? selectedDepId : ''),
+        department: new FormControl(this.doctor.department ? selectedDepId : ''),
         gender: new FormControl(this.doctor.gender ? this.doctor.gender : ''),
         mobile: new FormControl(this.doctor.mobile),
-        hospital: new FormControl(selectedDepId ? this.doctor.hospital : ''),
+        hospital: new FormControl(this.doctor.shifts.hospitalName ? selectedDepId : ''),
         shift: new FormControl(this.doctor.shift ? this.doctor.shift : '')
       });
-    
-      
-      // console.log(this.editForm, "Form");
-      // this.ds.getDoctorById(params['id'])
-      // .subscribe(data => {
-      //   console.log(data, "data");
-      //   this.doctor = data; //doctor can be used in html
-      //   // this.editForm.controls.name = this.doctor.name;
-      //   // this.editForm.controls.qualification = this.doctor.qualification;
-      // });
     });
   }
 
