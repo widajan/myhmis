@@ -29,4 +29,12 @@ export class DepartmentService {
     return this.http.get('api/department/total'); 
   }
 
+  getDepartmentById(id){
+    return this.http.get(`api/department/details/${id}`);
+  }
+
+  update(id, data) {
+    return this.http.put(`api/department/update/${id}`, data);
+  }
+
 }

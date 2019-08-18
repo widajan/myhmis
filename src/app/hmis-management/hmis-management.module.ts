@@ -24,6 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { DoctorEditComponent } from './doctor-edit/doctor-edit.component';
+import { HospitalEditComponent } from './hospital-edit/hospital-edit.component';
+import { PatientEditComponent } from './patient-edit/patient-edit.component';
+import { DepartmentEditComponent } from './department-edit/department-edit.component';
 
 
 
@@ -143,6 +146,9 @@ const routes: Routes = [{
     PaginationComponent,
     HomeComponent,
     DoctorEditComponent,
+    HospitalEditComponent,
+    PatientEditComponent,
+    DepartmentEditComponent,
   ],
   imports: [
     CommonModule,

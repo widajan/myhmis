@@ -3,12 +3,15 @@
         <tr>
             <th>Department Name</th>
             <th>Department Description</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor = "let department of departments">
             <td>{{department.departmentName}}</td>
             <td>{{department.departmentDesc}}</td>
+            <td><a [routerLink]="['/department/edit/', department._id]" class="btn btn-primary">Edit</a>
+            <a [routerLink]="" class="btn btn-danger">Delete</a></td>
         </tr>
     </tbody>
 </table> 

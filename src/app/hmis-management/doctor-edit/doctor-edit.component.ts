@@ -35,7 +35,7 @@ export class DoctorEditComponent implements OnInit {
     private fb: FormBuilder ) { }
 
   doctorUpdate(data, id){
-    console.log(id, "id");
+    // console.log(id, "id");
     this.editForm = this.fb.group({
       name: ['', Validators.required],
       qualification: ['', Validators.required],
