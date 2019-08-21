@@ -13,28 +13,36 @@ export class DepartmentService {
 
   constructor(private http: HttpClient) { }
 
-  getDepartment(limit: number, skip: number): Observable<any> {
+  getDepartment(limit: number, skip: number, searchTerm = ''): Observable<any> {
     let filter = {
       limit: limit,
-      skip: skip
+      skip: skip,
+      searchTerm: searchTerm
     }; 
-    return this.http.get(`api/department/list?filter=${JSON.stringify(filter)}`);
+    return this.http.get(`api/department/list?filter=${encodeURIComponent(JSON.stringify(filter))}`);
   }
 
   addDepartmentData(departmentData: Department){
    return this.http.post("api/department/add",departmentData)
   }
 
-  countDepartment(): Observable<any>{
-    return this.http.get('api/department/total'); 
+  countDepartment(searchTerm = ''): Observable<any>{
+    let filter = {
+      searchTerm: searchTerm
+    };
+    return this.http.get(`api/department/total?filter=${encodeURIComponent(JSON.stringify(filter))}`);
   }
 
   getDepartmentById(id){
     return this.http.get(`api/department/details/${id}`);
   }
 
-  update(id, data) {
+  update(id, data): Observable<any> {
     return this.http.put(`api/department/update/${id}`, data);
+  }
+
+  delete(id): Observable<any>{
+    return this.http.delete(`api/department/delete/${id}`);
   }
 
 }

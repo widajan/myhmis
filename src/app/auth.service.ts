@@ -34,7 +34,6 @@ export class AuthService {
   isTokenExpired(token?: string): boolean {
     if(!token) token = this.getToken();
     if(!token) return true;
-    console.log("kalskjdflkasjfklasjdldkf");
     const date = this.getTokenExpirationDate(token);
     
     if(date === undefined) return true;

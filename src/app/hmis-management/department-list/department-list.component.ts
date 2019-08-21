@@ -4,6 +4,7 @@ import { Route, Router, ActivatedRoute } from '@angular/router';
 import { skip } from 'rxjs/operators';
 
 
+
 @Component({
   selector: 'app-department-list',
   templateUrl: './department-list.component.html',
@@ -17,6 +18,7 @@ export class DepartmentListComponent implements OnInit {
   recPerPage:number = 1;
   totalPage:number;
   skip = 0;
+  searchBtnStatus = false;
   
   constructor( 
     private departmentService: DepartmentService,
@@ -34,10 +36,10 @@ export class DepartmentListComponent implements OnInit {
 
   }
 
-  getDepartmentList(offset){
+  getDepartmentList(offset, searchTerm = ''){
     try {
       this.skip = offset;
-      this.departmentService.getDepartment(this.recPerPage, this.skip)
+      this.departmentService.getDepartment(this.recPerPage, this.skip, searchTerm)
       .subscribe(result => {
       this.departments = result;
       }, error =>{
@@ -48,9 +50,9 @@ export class DepartmentListComponent implements OnInit {
     }  
   }
  
-  countAllDepartment(){
+  countAllDepartment(searchTerm=''){
     return new Promise((resolve, reject) => {
-      this.departmentService.countDepartment()
+      this.departmentService.countDepartment(searchTerm)
       .subscribe(result => {
         resolve(result);
       }, error => {
@@ -58,4 +60,15 @@ export class DepartmentListComponent implements OnInit {
       })
     })
   }
+
+  async searchDepartment(event) {
+    let searchKey = event.target.value;
+    if(searchKey && searchKey.trim().length >= 2) {
+      this.countDepartments = await this.countAllDepartment(searchKey);
+      // console.log(this.countDepartments);
+      this.getDepartmentList(0, searchKey);
+    }
+  }
+
+
 }

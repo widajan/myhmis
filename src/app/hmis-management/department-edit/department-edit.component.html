@@ -1,12 +1,12 @@
 <div class="card">
         <div class="card-body">
-        <form [formGroup]="formEdit" (ngSubmit)="submitDepartment()">
+        <form *ngIf = "department" [formGroup]="formEdit" (ngSubmit)="departmentUpdate(formEdit.value, department._id)">
             <div class="form-group">
-                <label class="col-md-4">Department Name</label>
+                <label class="col-md-4">Department Name</label> 
                 <input type="text" class="form-control" formControlName="departmentName" />
             </div>
-            <div *ngIf = "formData.controls['departmentName'].invalid && (formData.controls['departmentName'].dirty || formData.controls['departmentName'].touched)" class="alert alert-danger">
-                <div *ngIf = "formData.controls['departmentName'].errors.required">
+            <div *ngIf = "formEdit.controls['departmentName'].invalid && (formEdit.controls['departmentName'].dirty || formEdit.controls['departmentName'].touched)" class="alert alert-danger">
+                <div *ngIf = "formEdit.controls['departmentName'].errors.required">
                     Department is required
                 </div>
             </div>
@@ -17,7 +17,7 @@
             </div>
             
             <div class="form-group">
-                <button type="submit" class="btn btn-primary" [disabled]="!formData.valid">Add Department</button>
+                <button type="submit" class="btn btn-primary" [disabled]="!formEdit.valid">Edit Department</button>
             </div>
         </form>
     

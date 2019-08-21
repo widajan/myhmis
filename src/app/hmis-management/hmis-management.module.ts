@@ -73,6 +73,10 @@ const routes: Routes = [{
           component: DepartmentAddComponent
         },
         {
+          path: 'edit/:id',
+          component: DepartmentEditComponent
+        },
+        {
           path: '',
           redirectTo: 'list',
           pathMatch:'full'

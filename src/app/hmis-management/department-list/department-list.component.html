@@ -1,3 +1,6 @@
+
+<input class="form-control mr-sm-2" type="text" placeholder="Search by name" ([ngModel])="searchTerm" aria-label="Search" (keydown)="searchDepartment($event);">
+
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
@@ -16,18 +19,19 @@
     </tbody>
 </table> 
 
-<!-- <nav aria-label="...">
-    <ul class="pagination pagination-sm">
-      <li class="page-item disabled">
-        <a class="page-link" [routerLink]="['/department/list']" [queryParams]="{page: 1}" tabindex="-1">1</a>
-      </li>
-      <li class="page-item"><a class="page-link" [routerLink]="['/department/list']" [queryParams]="{page: 2}">2</a></li>
-      <li class="page-item"><a class="page-link"[routerLink]="['/department/list']" [queryParams]="{page: 3}">3</a></li>
-    </ul>
-  </nav> -->
+    <!-- Simple pagination example -->
+    <!-- <nav aria-label="...">
+        <ul class="pagination pagination-sm">
+        <li class="page-item disabled">
+            <a class="page-link" [routerLink]="['/department/list']" [queryParams]="{page: 1}" tabindex="-1">1</a>
+        </li>
+        <li class="page-item"><a class="page-link" [routerLink]="['/department/list']" [queryParams]="{page: 2}">2</a></li>
+        <li class="page-item"><a class="page-link"[routerLink]="['/department/list']" [queryParams]="{page: 3}">3</a></li>
+        </ul>
+    </nav> -->
 
-  <div class="custom-pagination">
+    <div class="custom-pagination">
         <div class="col-sm-9 col-xs-12 ">
-            <app-custom-pagination *ngIf="countDepartments > recPerPage" [limit]="recPerPage" [offset]="skip" [size]="countDepartments" (pageChange)="getDepartmentList($event)"></app-custom-pagination>
+            <app-custom-pagination *ngIf="countDepartments > recPerPage" [limit]="recPerPage" [offset]="skip" [size]="countDepartments" (pageChange)="getDepartmentList($event, searchTerm)"></app-custom-pagination>
         </div>
     </div>
